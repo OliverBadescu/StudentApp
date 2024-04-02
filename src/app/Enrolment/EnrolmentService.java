@@ -45,6 +45,7 @@ public class EnrolmentService {
 
     }
 
+
     public ArrayList<Integer> enrolmentsStudent(int id){
 
         ArrayList<Integer> enrolmentsStudent = new ArrayList<>();
@@ -55,5 +56,16 @@ public class EnrolmentService {
             }
         }
         return enrolmentsStudent;
+    }
+
+    public boolean isInscrisLaCurs(int studentId, int courseId){
+
+        for (int i =0 ; i < enrolments.size();i++){
+            if(enrolments.get(i).getStudentId() == studentId && enrolments.get(i).getCourseId() == courseId){
+                this.enrolments.remove(enrolments.get(i));
+                return true;
+            }
+        }
+        return false;
     }
 }

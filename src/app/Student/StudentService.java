@@ -36,7 +36,7 @@ public class StudentService {
     private void loadData(){
 
         Student s1 = new Student(1, "Alex" ,"Stoica", "alexstoica@gmail.com", 18, "password1");
-        Student s2 = new Student(2, "Maria", "Popescu", "mariapopescu@gmail.com", 20, "password2");
+        Student s2 = new Student(2, "Grigore", "Luisa", "grigoreluisa@gmail.com", 18, "password2");
         Student s3 = new Student(3,"Ion", "Ionescu", "ionionescu@gmail.com", 22, "password3");
         Student s4 = new Student(4, "Elena", "Georgescu", "elenageorgescu@gmail.com", 19, "password4");
         Student s5 = new Student(5,"Andrei", "Mihai", "andreimihai@gmail.com", 21, "password5");

@@ -37,7 +37,8 @@ public class StudentView {
             System.out.println("Apasati tasta 1 pentru a afisa cursurile disponibile");
             System.out.println("Apasati tasta 2 pentru a inrola la un curs");
             System.out.println("Apasati tasta 3 pentru a afisa la ce cursuri sunteti inscris");
-            System.out.println("Apasati tasta 4 pentru a afisa datele personale");
+            System.out.println("Apasati tasta 4 pentru a renunta la un curs");
+            System.out.println("Apasati tasta 5 pentru a afisa datele personale");
 
 
         }
@@ -61,6 +62,9 @@ public class StudentView {
                         afisareEnrolments();
                         break;
                     case 4:
+                        quitEnrolments();
+                        break;
+                    case 5:
                         System.out.println(this.student.descriere());
                         break;
                     default:
@@ -73,14 +77,18 @@ public class StudentView {
 
         private void enrolmentCourse(){
 
-            System.out.println("Introduceti numele cursului la care doriti sa inrolati: ");
+            System.out.println("Introduceti numele cursului la care doriti sa va inscrieti: ");
             String name = scanner.nextLine();
 
             Course course = courseService.findByName(name);
 
             if (course!= null){
-                System.out.println("V-ati inscris cu succes la curs!");
-                enrolmentService.newEnrolment(student.getId(), course.getId());
+                if(!enrolmentService.isInscrisLaCurs(this.student.getId(), course.getId())) {
+                    System.out.println("V-ati inscris cu succes la curs!");
+                    enrolmentService.newEnrolment(student.getId(), course.getId());
+                }else{
+                    System.out.println("Sunteti deja inscris la acest curs");
+                }
             }else{
                 System.out.println("Cursul nu exista");
             }
@@ -95,6 +103,26 @@ public class StudentView {
             for (int i =0 ; i<courseList.size();i++){
                 System.out.println(courseList.get(i).descriere());
             }
+
+        }
+
+        private void quitEnrolments(){
+
+            System.out.println("Introduceti numele cursului la care doriti sa renuntati: ");
+            String name = scanner.nextLine();
+
+            Course course = courseService.findByName(name);
+
+            if (course!= null){
+                if(enrolmentService.isInscrisLaCurs(this.student.getId(), course.getId())){
+                    System.out.println("Ati renuntat la curs");
+                }else{
+                    System.out.println("Nu sunteti inscris la acest curs");
+                }
+            }else{
+                System.out.println("Cursul nu exista");
+            }
+
 
         }
 }
