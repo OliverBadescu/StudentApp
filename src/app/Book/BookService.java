@@ -36,4 +36,26 @@ public class BookService {
         }
 
     }
+
+    public Book BookStudent(int idStudent){
+
+        for (int i =0; i < books.size();i++){
+
+            if(books.get(i).getStudentId() == idStudent){
+                return books.get(i);
+            }
+
+        }
+        return null;
+    }
+
+    public Book findBookbyName(String bookName){
+
+        for (int i =0 ; i < books.size();i++){
+            if(books.get(i).getBookName().equals(bookName)){
+                return books.get(i);
+            }
+        }
+        return null;
+    }
 }

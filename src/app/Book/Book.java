@@ -34,9 +34,7 @@ public class Book {
     public String descriere(){
 
         String text = "";
-        text+= "Id: " + this.id + "\n";
-        text += "app.Student id: " + this.studentId + "\n";
-        text += "app.Book.Book name: " + this.bookName + "\n";
+        text += "Book name: " + this.bookName + "\n";
 
         return text;
 

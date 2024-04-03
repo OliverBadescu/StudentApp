@@ -24,7 +24,7 @@ public class StudentService {
 
     }
 
-    private Student findStudentById(int id){
+    public Student findStudentById(int id){
         for (int i =0; i < students.size();i++){
             if(students.get(i).getId() == id){
                 return students.get(i);
@@ -55,5 +55,29 @@ public class StudentService {
         }
 
     }
+
+    public Student logare(String email, String password){
+
+        for(int i =0 ; i < students.size();i++){
+            if(students.get(i).getEmail().equals(email)  && students.get(i).getPassword().equals(password)){
+                return students.get(i);
+            }
+        }
+        return null;
+    }
+
+    public boolean inregistrare(Student student){
+        for(int i =0; i < students.size();i++){
+            if(students.get(i).getEmail().equals(student.getEmail())){
+                return false;
+            }
+        }
+        this.students.add(student);
+        return true;
+    }
+
+
+
+
 
 }

@@ -34,7 +34,6 @@ public class Course {
     public String descriere(){
 
         String text = "";
-        text += "Id: " + this.id + "\n";
         text+= "Name: " + this.name + "\n";
         text += "Department: " + this.department + "\n";
 

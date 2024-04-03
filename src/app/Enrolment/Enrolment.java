@@ -23,14 +23,5 @@ public class Enrolment {
         this.courseId = courseId;
     }
 
-    public String descriere(){
-
-        String text = "";
-        text += "app.Student id: " + this.studentId + "\n";
-        text+= "app.Book.Book.Course id: " + this.courseId + "\n";
-
-        return text;
-
-    }
 
 }

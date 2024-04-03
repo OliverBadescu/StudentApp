@@ -29,14 +29,6 @@ public class EnrolmentService {
 
     }
 
-    public void afisareEnrolments(){
-
-        for (int i =0 ;i<  enrolments.size() ;i++){
-            System.out.println(enrolments.get(i).descriere());
-        }
-
-    }
-
     public void newEnrolment(int studentId, int courseId){
 
         Enrolment enrolment = new Enrolment(studentId,courseId);
@@ -58,7 +50,7 @@ public class EnrolmentService {
         return enrolmentsStudent;
     }
 
-    public boolean isInscrisLaCurs(int studentId, int courseId){
+    public boolean isInscrisLaCursRemove(int studentId, int courseId){
 
         for (int i =0 ; i < enrolments.size();i++){
             if(enrolments.get(i).getStudentId() == studentId && enrolments.get(i).getCourseId() == courseId){
@@ -68,4 +60,14 @@ public class EnrolmentService {
         }
         return false;
     }
+    public boolean isInscrisLaCurs(int studentId, int courseId){
+
+        for (int i =0 ; i < enrolments.size();i++){
+            if(enrolments.get(i).getStudentId() == studentId && enrolments.get(i).getCourseId() == courseId){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
