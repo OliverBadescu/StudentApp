@@ -13,6 +13,28 @@ public class BookService {
 
     }
 
+    public int generateId(){
+
+        int id=(int) Math.round(Math.random()*1000+1);
+
+        while (findBookById(id)!=null){
+            id=(int) Math.round(Math.random()*1000+1);
+        }
+
+        return id;
+
+    }
+
+    public Book findBookById(int id){
+        for (int i =0; i < books.size();i++){
+            if(books.get(i).getId() == id){
+                return books.get(i);
+            }
+        }
+        return null;
+
+    }
+
     private void loadData(){
 
         Book b1 = new Book(30, 1, "Bazele Programari");
@@ -57,5 +79,27 @@ public class BookService {
             }
         }
         return null;
+    }
+
+    public boolean stergereCarte(Book book, int studentId){
+
+        for (int i =0 ; i < books.size();i++){
+            if(books.get(i).getBookName().equals(book.getBookName()) && books.get(i).getStudentId() == studentId){
+                this.books.remove(book);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean adaugareCarte(Book book, int studentId){
+
+        for (int i =0 ; i < books.size();i++){
+            if(!books.get(i).equals(book)){
+                this.books.add(book);
+                return true;
+            }
+        }
+        return false;
     }
 }

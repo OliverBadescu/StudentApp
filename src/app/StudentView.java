@@ -39,14 +39,17 @@ public class StudentView {
             System.out.println("Apasati tasta 3 pentru a afisa la ce cursuri sunteti inscris");
             System.out.println("Apasati tasta 4 pentru a renunta la un curs");
             System.out.println("Apasati tasta 5 pentru a afisa cartea dvs.");
-            System.out.println("Apasati tasta 6 pentru a afisa cartile");
-            System.out.println("Apasati tasta 7 pentru a cauta o carte");
-            System.out.println("Apasati tasta 8 pentru a afisa datele personale");
-            System.out.println("Apasati tasta 9 pentru a edita datele personale");
+            System.out.println("Apasati tasta 6 pentru a sterge cartea dvs.");
+            System.out.println("Apasati tasta 7 pentru a adauga o carte");
+            System.out.println("Apasati tasta 8 pentru a afisa cartile");
+            System.out.println("Apasati tasta 9 pentru a cauta o carte");
+            System.out.println("Apasati tasta 10 pentru a afisa datele personale");
+            System.out.println("Apasati tasta 11 pentru a edita datele personale");
+
 
             System.out.println("\n");
 
-            System.out.println("Apasati tasta 10 pentru a iesi din cont");
+            System.out.println("Apasati tasta 12 pentru a iesi din cont");
 
 
 
@@ -78,18 +81,24 @@ public class StudentView {
                         afisareBookStudent();
                         break;
                     case 6:
-                        bookService.afisareBooks();
+                        stergereCarte();
                         break;
                     case 7:
-                        cautareBook();
+                        adaugareCarte();
                         break;
                     case 8:
-                        System.out.println(this.student.descriere());
+                        bookService.afisareBooks();
                         break;
                     case 9:
-                        editareDate();
+                        cautareBook();
                         break;
                     case 10:
+                        System.out.println(this.student.descriere());
+                        break;
+                    case 11:
+                        editareDate();
+                        break;
+                    case 12:
                         running = false;
                         break;
                     default:
@@ -216,6 +225,42 @@ public class StudentView {
                     System.out.println("Tasta incorecta");
             }
 
+
+        }
+
+        private void stergereCarte(){
+
+            System.out.println("Introduceti numele cartii dvs.");
+            String name = scanner.nextLine();
+
+            Book book = bookService.findBookbyName(name);
+
+            if(book != null){
+                if(bookService.stergereCarte(book, this.student.getId())){
+                    System.out.println("Cartea dvs. a fost stearsa");
+                }else{
+                    System.out.println("Cartea introdusa nu se afla la dvs.");
+                }
+            }else{
+                System.out.println("Cartea nu exista");
+            }
+
+
+        }
+
+        private void adaugareCarte(){
+
+            System.out.println("Introduceti numele cartii: ");
+            String name = scanner.nextLine();
+
+            Book book = new Book(bookService.generateId(), this.student.getId(), name);
+
+            if (bookService.adaugareCarte(book, this.student.getId())) {
+
+                System.out.println("Cartea a fost adaugata");
+            } else {
+                System.out.println("Cartea se afla deja la alt student");
+            }
 
         }
 }
