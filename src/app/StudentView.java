@@ -256,8 +256,8 @@ public class StudentView {
             Book book = new Book(bookService.generateId(), this.student.getId(), name);
 
             if (bookService.adaugareCarte(book, this.student.getId())) {
-
                 System.out.println("Cartea a fost adaugata");
+
             } else {
                 System.out.println("Cartea se afla deja la alt student");
             }

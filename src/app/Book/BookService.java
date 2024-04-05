@@ -95,11 +95,11 @@ public class BookService {
     public boolean adaugareCarte(Book book, int studentId){
 
         for (int i =0 ; i < books.size();i++){
-            if(!books.get(i).equals(book)){
-                this.books.add(book);
-                return true;
+            if(books.get(i).getBookName().equals(book.getBookName())){
+                return false;
             }
         }
-        return false;
+        this.books.add(book);
+        return true;
     }
 }
