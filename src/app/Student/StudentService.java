@@ -76,6 +76,16 @@ public class StudentService {
         return true;
     }
 
+    public boolean stergereStudent(Student student){
+        for (int i =0 ; i < students.size();i++){
+            if(students.get(i).getId() == student.getId()){
+                this.students.remove(student);
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 

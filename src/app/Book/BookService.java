@@ -102,4 +102,13 @@ public class BookService {
         this.books.add(book);
         return true;
     }
+
+    public Book findByStudentId(int studentId){
+        for (int i =0 ; i < books.size();i++){
+            if(books.get(i).getStudentId() == studentId){
+                return books.get(i);
+            }
+        }
+        return null;
+    }
 }

@@ -5,11 +5,13 @@ public class Course {
     private int id;
     private String name;
     private String department;
+    private int profesorId;
 
-    public Course(int id, String name, String department){
+    public Course(int id, String name, String department, int profesorId){
         this.id = id;
         this.name = name;
         this.department = department;
+        this.profesorId = profesorId;
     }
 
     public int getId() {
@@ -30,6 +32,8 @@ public class Course {
     public void setDepartment(String department) {
         this.department = department;
     }
+    public int getProfesorId() {return this.profesorId;}
+    public void setProfesorId(int profesorId) {this.profesorId = profesorId;}
 
     public String descriere(){
 

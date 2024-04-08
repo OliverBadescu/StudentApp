@@ -51,6 +51,7 @@ public class Student {
 
         String text = "";
 
+        text+= "Id: " + this.id + "\n";
         text+= "First name: " + this.firstName + "\n";
         text += "Last name: " + this.lastName + "\n";
         text += "Email: " + this.email + "\n";
