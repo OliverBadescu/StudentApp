@@ -1,6 +1,6 @@
 package app;
 
-import app.Student.Student;
+import app.view.LoginView;
 
 public class Main {
     public static void main(String[] args) {

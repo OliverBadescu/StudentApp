@@ -1,0 +1,5 @@
+30,1,Bazele Programari
+31,2,Algebra Liniara
+32,3,Oriented-Object Programming
+33,4,Fundamentele C#
+34,5,Dictionar Engleza

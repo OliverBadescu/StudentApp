@@ -1,0 +1,5 @@
+20,OOP,Informatica,100
+21,Contabilitate,Economie,101
+22,Algoritmi fundamentali,Informatica" ,102
+23,Algebra, Matematica,103
+24,Tehinici avansate de programare,Informatica,104

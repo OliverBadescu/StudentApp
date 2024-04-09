@@ -1,0 +1,5 @@
+1,Alex,Stoica,alexstoica@gmail.com,18,password1
+2,Grigore,Luisa,grigoreluisa@gmail.com,18,password2
+3,Ion,Ionescu,ionionescu@gmail.com,22,password3
+4,Elena,Georgescu,elenageorgescu@gmail.com,19,password4
+5,Andrei,Mihai,andreimihai@gmail.com,21,password5
